@@ -1,0 +1,38 @@
+@baseUrl = http://localhost:8701
+@authToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoidGVzdHVzZXIiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzQ1NjA5NDUxLCJpc3MiOiJodHRwczovL2xvY2FsaG9zdDo4NzAxIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6ODcwMSJ9.8IZF5xqP4H8bwY8CLVVN68GniOm6QIcC_L_H7EURzEE
+
+### Get all products
+GET {{baseUrl}}/api/products
+Authorization: Bearer {{authToken}}
+
+### Get product by ID
+GET {{baseUrl}}/api/products/1
+Authorization: Bearer {{authToken}}
+
+### Create new product
+POST {{baseUrl}}/api/products
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "name": "New Product",
+    "description": "This is a new product",
+    "price": 299.99,
+    "stock": 50
+}
+
+### Update product
+PUT {{baseUrl}}/api/products/1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "name": "Updated Product",
+    "description": "This product has been updated",
+    "price": 399.99,
+    "stock": 75
+}
+
+### Delete product
+DELETE {{baseUrl}}/api/products/1
+Authorization: Bearer {{authToken}} 

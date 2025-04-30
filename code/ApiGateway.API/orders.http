@@ -1,0 +1,72 @@
+@baseUrl = https://localhost:8701
+@authToken = "YourSecretKeyHere123!@#$%^&*()"
+
+### Get all orders
+GET {{baseUrl}}/api/orders
+Authorization: Bearer {{authToken}}
+
+### Get order by ID
+GET {{baseUrl}}/api/orders/1
+Authorization: Bearer {{authToken}}
+
+### Create new order
+POST {{baseUrl}}/api/orders
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "customerName": "John Smith",
+    "shippingAddress": "123 Main St, City",
+    "totalAmount": 1299.98,
+    "items": [
+        {
+            "productId": 1,
+            "productName": "Laptop",
+            "quantity": 1,
+            "unitPrice": 999.99
+        },
+        {
+            "productId": 3,
+            "productName": "Headphones",
+            "quantity": 1,
+            "unitPrice": 199.99
+        }
+    ]
+}
+
+### Update order
+PUT {{baseUrl}}/api/orders/1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+{
+    "customerName": "John Smith",
+    "shippingAddress": "456 Oak Ave, Town",
+    "totalAmount": 1299.98,
+    "status": "Processing",
+    "items": [
+        {
+            "productId": 1,
+            "productName": "Laptop",
+            "quantity": 1,
+            "unitPrice": 999.99
+        },
+        {
+            "productId": 3,
+            "productName": "Headphones",
+            "quantity": 1,
+            "unitPrice": 199.99
+        }
+    ]
+}
+
+### Update order status
+PUT {{baseUrl}}/api/orders/1/status
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+"Shipped"
+
+### Delete order
+DELETE {{baseUrl}}/api/orders/1
+Authorization: Bearer {{authToken}} 
